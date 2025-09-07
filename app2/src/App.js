@@ -11,13 +11,13 @@ function App() {
   }, []);
 
   const fetchItems = async () => {
-    const res = await axios.get("http://localhost:5000/api/items");
+    const res = await axios.get("https://new-crud-backend-t2ha.onrender.com/api/items");
     setItems(res.data);
   };
 
   const createItem = async () => {
     if (!form.name) return;
-    await axios.post("http://localhost:5000/api/items", form);
+    await axios.post("https://new-crud-backend-t2ha.onrender.com/api/items", form);
     setForm({ name: "", description: "" });
     fetchItems();
   };
@@ -25,13 +25,13 @@ function App() {
   const updateItem = async (id) => {
     const newName = prompt("Enter new name:");
     if (newName) {
-      await axios.put(`http://localhost:5000/api/items/${id}`, { name: newName });
+      await axios.put(`https://new-crud-backend-t2ha.onrender.com/api/items/${id}`, { name: newName });
       fetchItems();
     }
   };
 
   const deleteItem = async (id) => {
-    await axios.delete(`http://localhost:5000/api/items/${id}`);
+    await axios.delete(`https://new-crud-backend-t2ha.onrender.com/api/items/${id}`);
     fetchItems();
   };
 
